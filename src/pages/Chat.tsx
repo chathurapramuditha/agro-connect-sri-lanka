@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { MessageSquare, Send, Search, Phone, Video } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
+import { Session } from '@supabase/supabase-js';
 
 interface ChatMessage {
   id: string;
@@ -30,30 +32,27 @@ interface Chat {
 const Chat = () => {
   const location = useLocation();
   const { toast } = useToast();
+  const [session, setSession] = useState<Session | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
   
   // Get farmer info from navigation state
   const farmerData = location.state;
   
-  const [chats, setChats] = useState<Chat[]>([
-    {
-      id: '1',
-      participantName: 'John Farmer',
-      participantType: 'farmer',
-      lastMessage: 'I have fresh tomatoes available',
-      timestamp: '2 min ago',
-      unreadCount: 2,
-      avatar: '/placeholder.svg'
-    },
-    {
-      id: '2',
-      participantName: 'Sarah Buyer',
-      participantType: 'buyer',
-      lastMessage: 'When can you deliver the carrots?',
-      timestamp: '1 hour ago',
-      unreadCount: 0,
-      avatar: '/placeholder.svg'
-    }
-  ]);
+  const [chats, setChats] = useState<Chat[]>([]);
 
   // Add farmer to chat list if coming from marketplace
   useEffect(() => {
@@ -99,64 +98,76 @@ const Chat = () => {
     }
   }, [farmerData]);
 
-  const [selectedChat, setSelectedChat] = useState<string | null>('1');
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: '1',
-      senderId: '1',
-      senderName: 'John Farmer',
-      message: 'Hello! I have fresh organic tomatoes available for sale. Would you be interested?',
-      timestamp: '10:30 AM',
-      isOwn: false
-    },
-    {
-      id: '2',
-      senderId: 'current-user',
-      senderName: 'You',
-      message: 'Yes, I\'m interested. What\'s the price per kg?',
-      timestamp: '10:32 AM',
-      isOwn: true
-    },
-    {
-      id: '3',
-      senderId: '1',
-      senderName: 'John Farmer',
-      message: 'Rs. 120 per kg. They are freshly harvested this morning. I can deliver today if you need.',
-      timestamp: '10:35 AM',
-      isOwn: false
-    }
-  ]);
+  const [selectedChat, setSelectedChat] = useState<string | null>(null);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
 
   const [newMessage, setNewMessage] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const sendMessage = () => {
-    if (!newMessage.trim() || !selectedChat) return;
+  useEffect(() => {
+    if (selectedChat) {
+      fetchMessages(selectedChat);
+    }
+  }, [selectedChat]);
 
-    const message: ChatMessage = {
-      id: Date.now().toString(),
-      senderId: 'current-user',
-      senderName: 'You',
-      message: newMessage,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      isOwn: true
+  useEffect(() => {
+    const channel = supabase.channel('public:messages')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'messages' }, (payload) => {
+        if (payload.new) {
+          const newMessage = payload.new as any;
+          if (newMessage.recipient_id === session?.user?.id || newMessage.sender_id === session?.user?.id) {
+            fetchMessages(selectedChat!);
+          }
+        }
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
     };
+  }, [session, selectedChat]);
 
-    setMessages(prev => [...prev, message]);
-    setNewMessage('');
+  const fetchMessages = async (chatId: string) => {
+    if (!session) return;
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .or(`(sender_id.eq.${session.user.id},recipient_id.eq.${chatId}),(sender_id.eq.${chatId},recipient_id.eq.${session.user.id})`)
+      .order('created_at', { ascending: true });
 
-    // Update last message in chat list
-    setChats(prev => prev.map(chat => 
-      chat.id === selectedChat 
-        ? { ...chat, lastMessage: newMessage, timestamp: 'now' }
-        : chat
-    ));
-
-    toast({
-      title: "Message sent",
-      description: "Your message has been delivered.",
-    });
+    if (error) {
+      toast({ title: "Error fetching messages", description: error.message, variant: "destructive" });
+    } else {
+      const formattedMessages: ChatMessage[] = data.map((msg: any) => ({
+        id: msg.id,
+        senderId: msg.sender_id,
+        senderName: msg.sender_id === session.user.id ? 'You' : 'Other User',
+        message: msg.content,
+        timestamp: new Date(msg.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        isOwn: msg.sender_id === session.user.id,
+      }));
+      setMessages(formattedMessages);
+    }
   };
+
+  const sendMessage = async () => {
+    if (!newMessage.trim() || !selectedChat || !session) return;
+
+    const { error } = await supabase
+      .from('messages')
+      .insert({
+        sender_id: session.user.id,
+        recipient_id: selectedChat,
+        content: newMessage,
+      });
+
+    if (error) {
+      toast({ title: "Error sending message", description: error.message, variant: "destructive" });
+    } else {
+      setNewMessage('');
+    }
+  };
+
 
   const selectedChatData = chats.find(chat => chat.id === selectedChat);
   const filteredChats = chats.filter(chat => 
