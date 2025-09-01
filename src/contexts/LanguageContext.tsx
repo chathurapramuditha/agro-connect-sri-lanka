@@ -184,6 +184,54 @@ const translations = {
     'cta.tryai': 'Try AI Assistant',
     'cta.readarticle': 'Read Article',
     
+    // Blog posts content
+    'blog.ai_crop_title': 'AI Crop Recommendations Transform Sri Lankan Agriculture',
+    'blog.ai_crop_excerpt': 'Revolutionary AI technology helps farmers increase yields by 30% through smart crop selection and timing.',
+    'blog.ai_crop_category': 'Technology',
+    'blog.ai_crop_author': 'Dr. Priya Kumari',
+    
+    'blog.sustainable_title': 'Sustainable Farming Practices Combat Climate Change',
+    'blog.sustainable_excerpt': 'Eco-friendly methods that boost productivity while protecting the environment for future generations.',
+    'blog.sustainable_category': 'Sustainability',
+    'blog.sustainable_author': 'Ravi Perera',
+    
+    'blog.market_title': 'Market Analysis: Record Vegetable Prices in March 2024',
+    'blog.market_excerpt': 'Comprehensive analysis reveals 25% price increase for key vegetables due to weather conditions.',
+    'blog.market_category': 'Market Analysis',
+    'blog.market_author': 'Sanduni Silva',
+    
+    'blog.water_title': 'Water Conservation Techniques Save Farms During Drought',
+    'blog.water_excerpt': 'Innovative irrigation methods help farmers maintain crops despite challenging dry season conditions.',
+    'blog.water_category': 'Water Management',
+    'blog.water_author': 'Thilak Fernando',
+    
+    // AI Assistant messages
+    'ai.assistant': 'AI Assistant',
+    'ai.tomato_advice': 'Based on weather patterns, plant tomatoes next week for optimal yield.',
+    'ai.price_prediction': 'Price Prediction',
+    'ai.carrot_prediction': 'Carrot prices expected to rise 15% next month',
+    'ai.crop_calendar': 'Crop Calendar',
+    'ai.planting_time': 'Perfect time for planting seasonal vegetables',
+    
+    // Header buttons
+    'header.notifications': 'Notifications',
+    'header.chat': 'Chat',
+    'header.cart': 'Cart',
+    'header.ai_assistant': 'AI Assistant',
+    'header.dashboard': 'Dashboard',
+    'header.logout': 'Logout',
+    
+    // Footer
+    'footer.brand_description': 'Connecting Sri Lankan farmers directly with buyers. Fresh produce, fair prices, powered by AI.',
+    'footer.quick_links': 'Quick Links',
+    'footer.for_farmers': 'For Farmers',
+    'footer.join_farmer': 'Join as Farmer',
+    'footer.crop_calendar': 'Crop Calendar',
+    'footer.ai_assistant': 'AI Farming Assistant',
+    'footer.weather': 'Weather Updates',
+    'footer.contact': 'Contact Us',
+    'footer.copyright': '© 2024 AgroLink Sri Lanka. All rights reserved. Empowering agriculture with technology.',
+
     // Buttons and actions
     'btn.send': 'Send',
     'btn.edit': 'Edit',
@@ -374,6 +422,54 @@ const translations = {
     'cta.tryai': 'AI සහායක අත්හදා බලන්න',
     'cta.readarticle': 'ලේඛනය කියවන්න',
     
+    // Blog posts content
+    'blog.ai_crop_title': 'AI බෝග නිර්දේශ ශ්‍රී ලංකාවේ කෘෂිකර්මාන්තය පරිවර්තනය කරයි',
+    'blog.ai_crop_excerpt': 'විප්ලවීය AI තාක්ෂණය බුද්ධිමත් බෝග තේරීම සහ කාලය හරහා ගොවීන්ට අස්වැන්න 30% කින් වැඩි කිරීමට උපකාර කරයි.',
+    'blog.ai_crop_category': 'තාක්ෂණය',
+    'blog.ai_crop_author': 'වෛද්‍ය ප්‍රියා කුමාරි',
+    
+    'blog.sustainable_title': 'තිරසාර ගොවිතැන් ක්‍රම දේශගුණ විපර්යාසයට එරෙහිව සටන් කරයි',
+    'blog.sustainable_excerpt': 'අනාගත පරම්පරාවන් සඳහා පරිසරය ආරක්ෂා කරමින් නිෂ්පාදනය වැඩිදියුණු කරන පරිසර හිතකාමී ක්‍රම.',
+    'blog.sustainable_category': 'තිරසාරත්වය',
+    'blog.sustainable_author': 'රවී පෙරේරා',
+    
+    'blog.market_title': 'වෙළඳපල විශ්ලේෂණය: 2024 මාර්තු මාසයේ වාර්තාගත එළවළු මිල',
+    'blog.market_excerpt': 'සවිස්තරාත්මක විශ්ලේෂණයක් කාලගුණික තත්ත්වයන් හේතුවෙන් ප්‍රධාන එළවළු සඳහා 25% මිල වැඩිවීමක් හෙළි කරයි.',
+    'blog.market_category': 'වෙළඳපල විශ්ලේෂණය',
+    'blog.market_author': 'සඳුනි සිල්වා',
+    
+    'blog.water_title': 'ජල සංරක්ෂණ ක්‍රම නියඟය තුළ ගොවිපල බේරා ගනී',
+    'blog.water_excerpt': 'අභියෝගාත්මක වියළි කාලීන තත්ත්වයන් නොතකා බෝග පවත්වා ගැනීමට ගොවීන්ට නව්‍ය වාරිමාර්ග ක්‍රම උපකාර කරයි.',
+    'blog.water_category': 'ජල කළමනාකරණය',
+    'blog.water_author': 'තිලක් ප්‍රනාන්දු',
+    
+    // AI Assistant messages
+    'ai.assistant': 'AI සහායක',
+    'ai.tomato_advice': 'කාලගුණික රටාවන් මත පදනම්ව, ප්‍රශස්ත අස්වැන්න සඳහා ලබන සතියේ තක්කාලි රෝපණය කරන්න.',
+    'ai.price_prediction': 'මිල පුරෝකථනය',
+    'ai.carrot_prediction': 'කැරට් මිල ලබන මාසයේ 15% කින් ඉහළ යාමට අපේක්ෂා කෙරේ',
+    'ai.crop_calendar': 'බෝග දිනදර්ශනය',
+    'ai.planting_time': 'සෘතුමය එළවළු රෝපණය සඳහා සාර්ථක කාලය',
+    
+    // Header buttons
+    'header.notifications': 'දැනුම්දීම්',
+    'header.chat': 'කතාබස්',
+    'header.cart': 'කරත්තය',
+    'header.ai_assistant': 'AI සහායක',
+    'header.dashboard': 'උපකරණ පුවරුව',
+    'header.logout': 'ඉවත් වන්න',
+    
+    // Footer
+    'footer.brand_description': 'ශ්‍රී ලංකාවේ ගොවීන් සෘජුවම ගැනුම්කරුවන් සමඟ සම්බන්ධ කිරීම. නැවුම් නිෂ්පාදන, සාධාරණ මිල, AI බලගන්වනා.',
+    'footer.quick_links': 'ඉක්මන් සබැඳි',
+    'footer.for_farmers': 'ගොවීන් සඳහා',
+    'footer.join_farmer': 'ගොවියෙකු ලෙස එක්වන්න',
+    'footer.crop_calendar': 'බෝග දිනදර්ශනය',
+    'footer.ai_assistant': 'AI ගොවිතැන් සහායක',
+    'footer.weather': 'කාලගුණ යාවත්කාලීන',
+    'footer.contact': 'අප සම්බන්ධ කරන්න',
+    'footer.copyright': '© 2024 AgroLink ශ්‍රී ලංකාව. සියලු හිමිකම් ඇවිරිණි. තාක්ෂණයෙන් කෘෂිකර්මාන්තය බලගන්වනවා.',
+
     // Buttons and actions
     'btn.send': 'යවන්න',
     'btn.edit': 'සංස්කරණය',
@@ -564,6 +660,54 @@ const translations = {
     'cta.tryai': 'AI உதவியாளரை முயற்சிக்கவும்',
     'cta.readarticle': 'கட்டுரையைப் படிக்கவும்',
     
+    // Blog posts content
+    'blog.ai_crop_title': 'AI பயிர் பரிந்துரைகள் இலங்கை விவசாயத்தை மாற்றுகின்றன',
+    'blog.ai_crop_excerpt': 'புரட்சிகரமான AI தொழில்நுட்பம் புத்திசாலித்தனமான பயிர் தேர்வு மற்றும் நேரத்தின் மூலம் விவசாயிகளுக்கு விளைச்சலை 30% அதிகரிக்க உதவுகிறது.',
+    'blog.ai_crop_category': 'தொழில்நுட்பம்',
+    'blog.ai_crop_author': 'டாக்டர் பிரியா குமாரி',
+    
+    'blog.sustainable_title': 'நிலையான விவசாய முறைகள் காலநிலை மாற்றத்தை எதிர்த்துப் போராடுகின்றன',
+    'blog.sustainable_excerpt': 'எதிர்கால தலைமுறையினருக்காக சுற்றுச்சூழலைப் பாதுகாக்கும் அதே வேளையில் உற்பத்தித்திறனை அதிகரிக்கும் சுற்றுச்சூழல் நட்பு முறைகள்.',
+    'blog.sustainable_category': 'நிலைத்தன்மை',
+    'blog.sustainable_author': 'ரவி பெரேரா',
+    
+    'blog.market_title': 'சந்தை பகுப்பாய்வு: மார்ச் 2024 இல் சாதனை காய்கறி விலைகள்',
+    'blog.market_excerpt': 'விரிவான பகுப்பாய்வு வானிலை நிலைமைகள் காரணமாக முக்கிய காய்கறிகளுக்கு 25% விலை அதிகரிப்பை வெளிப்படுத்துகிறது.',
+    'blog.market_category': 'சந்தை பகுப்பாய்வு',
+    'blog.market_author': 'சந்துனி சில்வா',
+    
+    'blog.water_title': 'நீர் பாதுகாப்பு நுட்பங்கள் வறட்சியின் போது பண்ணைகளை காப்பாற்றுகின்றன',
+    'blog.water_excerpt': 'சவாலான வறண்ட காலநிலை நிலைமைகள் இருந்தபோதிலும் பயிர்களை பராமரிக்க விவசாயிகளுக்கு புதுமையான நீர்ப்பாசன முறைகள் உதவுகின்றன.',
+    'blog.water_category': 'நீர் மேலாண்மை',
+    'blog.water_author': 'திலக் பெர்னாண்டோ',
+    
+    // AI Assistant messages
+    'ai.assistant': 'AI உதவியாளர்',
+    'ai.tomato_advice': 'வானிலை முறைகளின் அடிப்படையில், உகந்த விளைச்சலுக்காக அடுத்த வாரம் தக்காளி நடவு செய்யுங்கள்.',
+    'ai.price_prediction': 'விலை கணிப்பு',
+    'ai.carrot_prediction': 'கேரட் விலைகள் அடுத்த மாதம் 15% உயரும் என எதிர்பார்க்கப்படுகிறது',
+    'ai.crop_calendar': 'பயிர் நாட்காட்டி',
+    'ai.planting_time': 'பருவகால காய்கறிகளை நடவு செய்வதற்கான சரியான நேரம்',
+    
+    // Header buttons
+    'header.notifications': 'அறிவிப்புகள்',
+    'header.chat': 'அரட்டை',
+    'header.cart': 'வண்டி',
+    'header.ai_assistant': 'AI உதவியாளர்',
+    'header.dashboard': 'கட்டுப்பாட்டு பலகை',
+    'header.logout': 'வெளியேறு',
+    
+    // Footer
+    'footer.brand_description': 'இலங்கை விவசாயிகளை நேரடியாக வாங்குபவர்களுடன் இணைக்கிறது. புதிய விளைபொருட்கள், நியாயமான விலைகள், AI ஆல் இயக்கப்படுகிறது.',
+    'footer.quick_links': 'விரைவு இணைப்புகள்',
+    'footer.for_farmers': 'விவசாயிகளுக்காக',
+    'footer.join_farmer': 'விவசாயியாக சேரவும்',
+    'footer.crop_calendar': 'பயிர் நாட்காட்டி',
+    'footer.ai_assistant': 'AI விவசாய உதவியாளர்',
+    'footer.weather': 'வானிலை புதுப்பிப்புகள்',
+    'footer.contact': 'எங்களை தொடர்பு கொள்ளவும்',
+    'footer.copyright': '© 2024 AgroLink இலங்கை. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை. தொழில்நுட்பத்துடன் விவசாயத்தை வலுப்படுத்துதல்.',
+
     // Buttons and actions
     'btn.send': 'அனுப்பு',
     'btn.edit': 'திருத்து',

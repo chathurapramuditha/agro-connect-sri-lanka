@@ -19,7 +19,7 @@ const Footer = () => {
               <span className="font-bold text-xl text-primary">AgroLink</span>
             </div>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Connecting Sri Lankan farmers directly with buyers. Fresh produce, fair prices, powered by AI.
+              {t('footer.brand_description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-muted-foreground hover:text-primary">
@@ -36,7 +36,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Quick Links</h3>
+            <h3 className="font-semibold">{t('footer.quick_links')}</h3>
             <div className="space-y-2">
               <Link to="/" className="block text-sm text-muted-foreground hover:text-primary">
                 {t('nav.home')}
@@ -55,26 +55,26 @@ const Footer = () => {
 
           {/* For Farmers */}
           <div className="space-y-4">
-            <h3 className="font-semibold">For Farmers</h3>
+            <h3 className="font-semibold">{t('footer.for_farmers')}</h3>
             <div className="space-y-2">
               <Link to="/register?type=farmer" className="block text-sm text-muted-foreground hover:text-primary">
-                Join as Farmer
+                {t('footer.join_farmer')}
               </Link>
               <Link to="/crop-calendar" className="block text-sm text-muted-foreground hover:text-primary">
-                Crop Calendar
+                {t('footer.crop_calendar')}
               </Link>
               <Link to="/ai-chat" className="block text-sm text-muted-foreground hover:text-primary">
-                AI Farming Assistant
+                {t('footer.ai_assistant')}
               </Link>
               <Link to="/weather" className="block text-sm text-muted-foreground hover:text-primary">
-                Weather Updates
+                {t('footer.weather')}
               </Link>
             </div>
           </div>
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="font-semibold">Contact Us</h3>
+            <h3 className="font-semibold">{t('footer.contact')}</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <Mail className="h-4 w-4" />
@@ -94,7 +94,7 @@ const Footer = () => {
 
         <div className="border-t mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 AgroLink Sri Lanka. All rights reserved. Empowering agriculture with technology.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

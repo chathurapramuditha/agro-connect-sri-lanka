@@ -120,19 +120,19 @@ const Header = () => {
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/notifications">
                     <Bell className="h-4 w-4 mr-2" />
-                    Notifications
+                    {t('header.notifications')}
                   </Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/chat">
                     <MessageSquare className="h-4 w-4 mr-2" />
-                    Chat
+                    {t('header.chat')}
                   </Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/cart">
                     <ShoppingCart className="h-4 w-4 mr-2" />
-                    Cart
+                    {t('header.cart')}
                   </Link>
                 </Button>
               </>
@@ -142,7 +142,7 @@ const Header = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/ai-chat">
                 <MessageSquare className="h-4 w-4 mr-2" />
-                AI Assistant
+                {t('header.ai_assistant')}
               </Link>
             </Button>
 
@@ -158,12 +158,12 @@ const Header = () => {
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem onClick={() => navigate('/dashboard')}>
                     <Settings className="h-4 w-4 mr-2" />
-                    Dashboard
+                    {t('header.dashboard')}
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleLogout}>
                     <LogOut className="h-4 w-4 mr-2" />
-                    Logout
+                    {t('header.logout')}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -234,19 +234,19 @@ const Header = () => {
                     <Button variant="outline" size="sm" asChild>
                       <Link to="/notifications" onClick={() => setIsMenuOpen(false)}>
                         <Bell className="h-4 w-4 mr-2" />
-                        Notifications
+                        {t('header.notifications')}
                       </Link>
                     </Button>
                     <Button variant="outline" size="sm" asChild>
                       <Link to="/chat" onClick={() => setIsMenuOpen(false)}>
                         <MessageSquare className="h-4 w-4 mr-2" />
-                        Chat
+                        {t('header.chat')}
                       </Link>
                     </Button>
                     <Button variant="outline" size="sm" asChild>
                       <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
                         <ShoppingCart className="h-4 w-4 mr-2" />
-                        Cart
+                        {t('header.cart')}
                       </Link>
                     </Button>
                   </>
@@ -255,7 +255,7 @@ const Header = () => {
                 <Button variant="outline" size="sm" asChild>
                   <Link to="/ai-chat" onClick={() => setIsMenuOpen(false)}>
                     <MessageSquare className="h-4 w-4 mr-2" />
-                    AI Assistant
+                    {t('header.ai_assistant')}
                   </Link>
                 </Button>
                 
@@ -263,11 +263,11 @@ const Header = () => {
                   <>
                     <Button variant="outline" size="sm" onClick={() => { navigate('/dashboard'); setIsMenuOpen(false); }}>
                       <Settings className="h-4 w-4 mr-2" />
-                      Dashboard
+                      {t('header.dashboard')}
                     </Button>
                     <Button variant="outline" size="sm" onClick={() => { handleLogout(); setIsMenuOpen(false); }}>
                       <LogOut className="h-4 w-4 mr-2" />
-                      Logout
+                      {t('header.logout')}
                     </Button>
                   </>
                 ) : (

@@ -35,37 +35,37 @@ const Home = () => {
   const blogPosts = [
     {
       id: 1,
-      title: "AI Crop Recommendations Transform Sri Lankan Agriculture",
-      excerpt: "Revolutionary AI technology helps farmers increase yields by 30% through smart crop selection and timing.",
-      category: "Technology",
-      author: "Dr. Priya Kumari",
+      title: t('blog.ai_crop_title'),
+      excerpt: t('blog.ai_crop_excerpt'),
+      category: t('blog.ai_crop_category'),
+      author: t('blog.ai_crop_author'),
       date: "2024-03-15",
       image: "🌱"
     },
     {
       id: 2,
-      title: "Sustainable Farming Practices Combat Climate Change",
-      excerpt: "Eco-friendly methods that boost productivity while protecting the environment for future generations.",
-      category: "Sustainability", 
-      author: "Ravi Perera",
+      title: t('blog.sustainable_title'),
+      excerpt: t('blog.sustainable_excerpt'),
+      category: t('blog.sustainable_category'), 
+      author: t('blog.sustainable_author'),
       date: "2024-03-12",
       image: "🌿"
     },
     {
       id: 3,
-      title: "Market Analysis: Record Vegetable Prices in March 2024",
-      excerpt: "Comprehensive analysis reveals 25% price increase for key vegetables due to weather conditions.",
-      category: "Market Analysis",
-      author: "Sanduni Silva", 
+      title: t('blog.market_title'),
+      excerpt: t('blog.market_excerpt'),
+      category: t('blog.market_category'),
+      author: t('blog.market_author'), 
       date: "2024-03-10",
       image: "📈"
     },
     {
       id: 4,
-      title: "Water Conservation Techniques Save Farms During Drought",
-      excerpt: "Innovative irrigation methods help farmers maintain crops despite challenging dry season conditions.",
-      category: "Water Management",
-      author: "Thilak Fernando",
+      title: t('blog.water_title'),
+      excerpt: t('blog.water_excerpt'),
+      category: t('blog.water_category'),
+      author: t('blog.water_author'),
       date: "2024-03-08", 
       image: "💧"
     }
@@ -191,30 +191,30 @@ const Home = () => {
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
                       <MessageSquare className="h-5 w-5 text-blue-600" />
-                      <span className="font-medium">AI Assistant</span>
+                      <span className="font-medium">{t('ai.assistant')}</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      "Based on weather patterns, plant tomatoes next week for optimal yield."
+                      "{t('ai.tomato_advice')}"
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
                       <BarChart3 className="h-5 w-5 text-green-600" />
-                      <span className="font-medium">Price Prediction</span>
+                      <span className="font-medium">{t('ai.price_prediction')}</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      "Carrot prices expected to rise 15% next month"
+                      "{t('ai.carrot_prediction')}"
                     </p>
                   </div>
 
                   <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm">
                     <div className="flex items-center gap-3 mb-2">
                       <Calendar className="h-5 w-5 text-purple-600" />
-                      <span className="font-medium">Crop Calendar</span>
+                      <span className="font-medium">{t('ai.crop_calendar')}</span>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      "Perfect time for planting seasonal vegetables"
+                      "{t('ai.planting_time')}"
                     </p>
                   </div>
                   </div>
